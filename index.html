@@ -24,6 +24,37 @@
       .project-list li { margin-bottom:.8rem; }
       .mobile-photo { display:none; }
       @media (max-width:991.98px) { .mobile-photo { display:flex; margin:0 0 1.5rem; background:#bd5d38; } }
+
+      /* 全站品牌主色：柔和草綠 #98BA70 */
+      :root { --bs-primary:#98BA70; --portfolio-green:#98BA70; --portfolio-deep:#47633a; }
+      #sideNav, .navbar.bg-primary, .bg-primary { background-color:#98BA70 !important; }
+      .text-primary { color:#71994b !important; }
+      a { color:#628944; }
+      a:hover { color:#47633a; }
+      #sideNav .navbar-nav .nav-link:hover, #sideNav .navbar-nav .nav-link.active { color:#fff !important; }
+      .mobile-photo { background:#98BA70 !important; }
+      /* Bento Grid 作品集：大卡 + 四張小卡 */
+      #portfolio .resume-section-content { width:100%; }
+      .portfolio-intro { max-width:790px; margin-bottom:1.75rem; line-height:1.8; }
+      .bento-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:1.15rem; }
+      .project-card { display:flex; flex-direction:column; min-width:0; overflow:hidden; background:#fff; border:1px solid #e1ead9; border-radius:19px; box-shadow:0 7px 22px rgba(55,77,43,.07); transition:transform .2s,box-shadow .2s; }
+      .project-card:hover { transform:translateY(-3px); box-shadow:0 12px 27px rgba(55,77,43,.13); }
+      .project-card.featured { grid-column:1/-1; }
+      .project-image { position:relative; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:.65rem; aspect-ratio:16/9; padding:1rem; overflow:hidden; text-align:center; background:linear-gradient(135deg,#e5efd9,#c7dcb3); color:#547344; }
+      .project-card.featured .project-image { aspect-ratio:2.5/1; background:linear-gradient(125deg,#d8e6cb,#a9c98b); }
+      .project-image img { position:absolute; inset:0; width:100%; height:100%; object-fit:cover; }
+      .project-image .placeholder-icon { font-size:2rem; opacity:.8; }
+      .project-image .placeholder-text { font-size:.95rem; font-weight:700; letter-spacing:.08em; }
+      .project-image .placeholder-tip { font-size:.8rem; opacity:.8; }
+      .project-body { padding:1.3rem 1.4rem 1.45rem; flex:1; }
+      .project-meta { display:flex; justify-content:space-between; align-items:center; gap:.5rem; flex-wrap:wrap; margin-bottom:.55rem; }
+      .project-tag { color:#547b3c; background:#edf4e6; padding:.25rem .65rem; border-radius:999px; font-size:.76rem; font-weight:700; }
+      .project-status { color:#737e6e; font-size:.78rem; }
+      .project-title { font-size:1.45rem; margin-bottom:.55rem; color:#313c32; }
+      .project-description { font-size:.97rem; line-height:1.8; margin-bottom:.75rem; }
+      .project-tech { font-size:.83rem; color:#6b7b61; font-weight:700; }
+      .project-link { display:inline-block; margin-top:.75rem; font-size:.9rem; font-weight:700; }
+      @media(max-width:600px) { .bento-grid { grid-template-columns:1fr; } .project-card.featured { grid-column:auto; } .project-card.featured .project-image { aspect-ratio:16/9; } .project-body { padding:1.15rem; } }
     </style>
 </head>
 <body id="page-top">
@@ -139,30 +170,90 @@
         </section>
         <hr class="m-0" />
         <section class="resume-section" id="portfolio">
-            
             <div class="resume-section-content">
-                <h2 class="mb-5">作品集</h2>
-
-                <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
-                    <div class="flex-grow-1">
-                        <h3 class="mb-0">《貓咪們放學啦！》</h3>
-                        <div class="subheading mb-3">Ren'Py 文字冒險與回合制戰鬥遊戲</div>
-                        <p>規劃 2D 校園題材的遊戲內容，設計角色技能、回合制戰鬥規則與劇情互動流程。透過作品練習把故事想法轉化為實際可操作的遊戲體驗。</p>
-                    </div>
-                    <div class="flex-shrink-0">
-                        <span class="text-primary">製作中</span>
-                    </div>
-                
-
-                <div class="d-flex flex-column flex-md-row justify-content-between">
-                    <div class="flex-grow-1">
-                        <h3 class="mb-0">《空白頁》</h3>
-                        <div class="subheading mb-3">Ren'Py 文字冒險互動小說</div>
-                        <p>使用 2D 圖像與自創劇情內容，設計角色個性、年齡、性別、職業與故事分支，希望透過作品讓玩家思考角色背後的故事。</p>
-                    </div>
-                    <div class="flex-shrink-0">
-                        <span class="text-primary">2025 年 - 持續製作中</span>
-                    </div>
+                <h2 class="mb-3">作品集 <span class="text-primary">Portfolio</span></h2>
+                <p class="portfolio-intro">從遊戲故事、角色養成到網頁與視窗程式，我希望把學習過程中的想法，一步步變成可以展示的作品。以下是我目前的五個專案，圖片與開發進度將持續更新。</p>
+                <div class="bento-grid">
+                    <article class="project-card featured">
+                        <div class="project-image" aria-label="失序記憶：空白頁 的圖片預留位置">
+                            <!-- 後續提供圖片後：將下方註解取消，並把圖片放入 assets/img/blank-page.png -->
+                            <!-- <img src="assets/img/blank-page.png" alt="失序記憶：空白頁 作品截圖" loading="lazy"> -->
+                            <span class="placeholder-icon" aria-hidden="true">📖</span>
+                            <span class="placeholder-text">失序記憶：空白頁</span>
+                            <span class="placeholder-tip">作品圖片待補</span>
+                        </div>
+                        <div class="project-body">
+                            <div class="project-meta"><span class="project-tag">原創懸疑視覺小說</span><span class="project-status">2025 年起持續製作</span></div>
+                            <h3 class="project-title">失序記憶：空白頁</h3>
+                            <p class="project-description">以原創故事與角色為核心的互動小說，使用 Ren'Py 規劃劇情分支、人物設定與玩家選擇，呈現具有懸疑氛圍的敘事體驗。</p>
+                            <div class="project-tech">Ren'Py · Visual Novel</div>
+                            
+                        </div>
+                    </article>
+                    <article class="project-card ">
+                        <div class="project-image" aria-label="貓咪 RPG 的圖片預留位置">
+                            <!-- 後續提供圖片後：將下方註解取消，並把圖片放入 assets/img/cat-rpg.png -->
+                            <!-- <img src="assets/img/cat-rpg.png" alt="貓咪 RPG 作品截圖" loading="lazy"> -->
+                            <span class="placeholder-icon" aria-hidden="true">🐱</span>
+                            <span class="placeholder-text">貓咪 RPG</span>
+                            <span class="placeholder-tip">作品圖片待補</span>
+                        </div>
+                        <div class="project-body">
+                            <div class="project-meta"><span class="project-tag">角色養成遊戲</span><span class="project-status">開發中</span></div>
+                            <h3 class="project-title">貓咪 RPG</h3>
+                            <p class="project-description">使用 C# Windows Forms 製作貓咪養成與戰鬥介面，設計角色升級、能力配置、回血道具與關卡解鎖機制。</p>
+                            <div class="project-tech">C# · Windows Forms</div>
+                            
+                        </div>
+                    </article>
+                    <article class="project-card ">
+                        <div class="project-image" aria-label="個人履歷網站 的圖片預留位置">
+                            <!-- 後續提供圖片後：將下方註解取消，並把圖片放入 assets/img/resume-website.png -->
+                            <!-- <img src="assets/img/resume-website.png" alt="個人履歷網站 作品截圖" loading="lazy"> -->
+                            <span class="placeholder-icon" aria-hidden="true">🌐</span>
+                            <span class="placeholder-text">個人履歷網站</span>
+                            <span class="placeholder-tip">作品圖片待補</span>
+                        </div>
+                        <div class="project-body">
+                            <div class="project-meta"><span class="project-tag">網頁設計</span><span class="project-status">持續更新</span></div>
+                            <h3 class="project-title">個人履歷網站</h3>
+                            <p class="project-description">使用 HTML、CSS 與 Bootstrap 修改個人履歷範本，整理學習經歷、技能與作品，並透過 GitHub Pages 發布。</p>
+                            <div class="project-tech">HTML · CSS · Bootstrap</div>
+                            <a class="project-link" href="https://trentlee9611-bug.github.io/" target="_blank" rel="noopener noreferrer">瀏覽網站 ↗</a>
+                        </div>
+                    </article>
+                    <article class="project-card ">
+                        <div class="project-image" aria-label="C# 系統程式 的圖片預留位置">
+                            <!-- 後續提供圖片後：將下方註解取消，並把圖片放入 assets/img/csharp-system.png -->
+                            <!-- <img src="assets/img/csharp-system.png" alt="C# 系統程式 作品截圖" loading="lazy"> -->
+                            <span class="placeholder-icon" aria-hidden="true">💻</span>
+                            <span class="placeholder-text">C# 系統程式</span>
+                            <span class="placeholder-tip">作品圖片待補</span>
+                        </div>
+                        <div class="project-body">
+                            <div class="project-meta"><span class="project-tag">課堂實作</span><span class="project-status">學習作品</span></div>
+                            <h3 class="project-title">C# 系統程式</h3>
+                            <p class="project-description">使用 Windows Forms 練習表單控制項、事件處理、條件判斷與資料計算，累積視窗程式設計基礎。</p>
+                            <div class="project-tech">C# · Windows Forms</div>
+                            
+                        </div>
+                    </article>
+                    <article class="project-card ">
+                        <div class="project-image" aria-label="Life RPG 的圖片預留位置">
+                            <!-- 後續提供圖片後：將下方註解取消，並把圖片放入 assets/img/life-rpg.png -->
+                            <!-- <img src="assets/img/life-rpg.png" alt="Life RPG 作品截圖" loading="lazy"> -->
+                            <span class="placeholder-icon" aria-hidden="true">🎯</span>
+                            <span class="placeholder-text">Life RPG</span>
+                            <span class="placeholder-tip">作品圖片待補</span>
+                        </div>
+                        <div class="project-body">
+                            <div class="project-meta"><span class="project-tag">人生養成 App</span><span class="project-status">規劃中</span></div>
+                            <h3 class="project-title">Life RPG</h3>
+                            <p class="project-description">將日常任務、目標與成長概念結合 RPG 系統，規劃透過任務完成與經驗值累積，讓生活管理更有遊戲感。</p>
+                            <div class="project-tech">C# · App Concept</div>
+                            
+                        </div>
+                    </article>
                 </div>
             </div>
         </section>
